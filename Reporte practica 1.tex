@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\oddsidemargin 0in
+\textwidth 6.75in
+\topmargin 0pt
+\headheight 0in
+\textheight 8.5in
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\title{Reporte de  Programas\\1er Parcial}
+\author{Salcedo Barron Ruben\\
+		Escuela Superior de C\'omputo\\
+		Teor\'ia Computacional\\ 
+		2CM5
+		}
+\date{5 de septiembre del 2016}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage 
+\section{Universo Binario}
+
+Programa que genera todo el universo del alfabeto binario, dada $n$ que ser\'a la potencia tope que imprime todo el alfabeto.
+\subsection{Manual}
+
+\subsection{Codigo}
+\lstset{language=C, breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+#include <stdio.h>
+#include <math.h>
+#include<time.h> 
+unsigned long generar(int x);
+int main(){
+            int resp,r,rep=0;;
+			do
+			{
+			int num=0;
+			printf("1.-Manual \n 2.-Automatico\n");
+             scanf("%d",&resp);
+			 switch(resp)
+			 {
+             case 1: 
+             printf("Ingrese n :\n");
+             scanf("%d",&num);
+             generar(num);
+		    printf("Desea repetir \n 1-NO\n 2-SI\n");
+			scanf("%d",&rep);
+			 break;
+			 case 2: 
+             srand(time(NULL));
+			  r=rand()%20;
+			 printf("numero es %d",r);
+           num=r;
+		   generar(num);
+		    printf(" Repetir \n 1-NO\n 2-SI \n");
+			rep=1+rand()%2;
+			printf(" %d ",rep);
+		   break;
+		   default: printf("opcion incorrecta "); break;
+		   }
+		   }while(rep!=1);
+		 return 0;
+} 
+unsigned long generar (int x)
+{
+FILE *doc;
+doc=fopen("universo.txt","w+");
+ unsigned long y,n=0,i,j;
+fprintf(doc,"{e,"); 
+    for(i=0;i<pow(2,x);i++){
+          y=i;  
+		while(y!=0){
+            fprintf(doc,"%d",y%2);
+                y=y/2;
+                n++;
+					}
+               for(j=n;j<x;j++){
+                 fprintf(doc,"0");
+					}           
+			fprintf(doc,",");
+		}
+		fprintf(doc,"}");
+	printf("\n");
+}
+\end{lstlisting}
+
+\end{document}

@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}Universo Binario}{2}% 
+\contentsline {subsection}{\numberline {1.1}Manual}{2}% 
+\contentsline {subsection}{\numberline {1.2}Codigo}{2}% 
