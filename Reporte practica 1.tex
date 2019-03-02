@@ -8,24 +8,56 @@
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\title{Reporte de  Programas\\1er Parcial}
-\author{Salcedo Barron Ruben\\
+\title{Reporte de  Practica 1}
+\author{Navarro P'erez Rafael \\Salcedo Barron Ruben\\
 		Escuela Superior de C\'omputo\\
-		Teor\'ia Computacional\\ 
-		2CM5
+		ADMINISTRACION DE SERVICIOS EN RED\\ 
+		4CM3
 		}
-\date{5 de septiembre del 2016}
+\date{1 de marzo del 2019}
 
 \begin{document}
 \maketitle
+\newpage 
 \tableofcontents
 \newpage 
-\section{Universo Binario}
-
-Programa que genera todo el universo del alfabeto binario, dada $n$ que ser\'a la potencia tope que imprime todo el alfabeto.
-\subsection{Manual}
-
-\subsection{Codigo}
+\section{Primera parte}
+\paragraph*{Introducción}
+EL SNMP (Simple Network Management Protocol) es el protocolo más utilizado para la gestión de
+redes IP basadas en internet. La versión original, ahora conocido como SNMPv1, es ampliamente
+difundida. SNMPv2 añade funcionalidad a la versión original, pero no se ocupa de sus limitaciones
+de seguridad; esta norma relativamente reciente no ha alcanzado mucha aceptación. La versión
+SNMPv3 que conserva las mejoras funcionales de SNMPv2 y añade potentes funciones de
+privacidad y autenticación.\\
+El protocolo simple de administración de red (SNMP), publicado en 1988, fue diseñado para
+proporcionar una implementación sencilla, así como facilitar el trabajo de gestión de redes de
+múltiples proveedores (enrutadores, servidores, estaciones de trabajo y otros recursos de la red).
+La especificación de SNMP tiene como objetivo:\\\\
+• Definir un protocolo para el intercambio de información entre uno o más sistemas de
+gestión y un número de agentes\\
+• Proporcionar un marco para dar formato y almacenamiento de información de gestión\\
+• Define una serie de variables de información de gestión de propósito general, u objetos\\
+\\La versión original de SNMP (ahora conocido como SNMPv1) se convirtió rápidamente en el
+esquema de gestión de la red más utilizado. Sin embargo, como el uso del protocolo se generalizó,
+se hicieron evidentes sus deficiencias. Estas incluyen la falta de comunicación-manager-manager, la
+incapacidad para hacer la transferencia de datos a granel, y la falta de seguridad. \\
+SNMPv2 no ha recibido la aceptación que sus diseñadores anticiparon. Mientras que las mejoras
+funcionales han sido bienvenidas, los desarrolladores encontraron las modificaciones de seguridad
+para SNMPv2 demasiado complejas. En consecuencia, el grupo de trabajo SNMPv2 se reactivó para
+proporcionar una mejora de los documentos SNMPv2.\\
+El resultado de este esfuerzo ha sido un éxito menor y un gran fracaso. El éxito de menor
+importancia es la mejora de los aspectos funcionales de SNMPv2. El gran fracaso radica en el área
+de la seguridad. El grupo de trabajo fue incapaz de resolver el problema, y surgieron dos enfoques
+diferentes. Con esta mejora, la parte funcional de SNMPv2 progresó de una propuesta a un estándar
+de Internet a partir de 1996. Luego, en 1997, empezó a trabajar en SNMPv3, lo que hace cambios
+funcionales menores e incorpora un nuevo enfoque de seguridad.
+\subsection{Capturas}
+\section{Segunda parte}
+\subsection{Capturas}
+\section{Tercera parte}
+\subsection{Preguntas}
+\subsection{Capturas}
+\subsection{Código}
 \lstset{language=C, breaklines=true, basicstyle=\footnotesize}
 \begin{lstlisting}[frame=single]
 #include <stdio.h>
@@ -38,52 +70,6 @@ int main(){
 			{
 			int num=0;
 			printf("1.-Manual \n 2.-Automatico\n");
-             scanf("%d",&resp);
-			 switch(resp)
-			 {
-             case 1: 
-             printf("Ingrese n :\n");
-             scanf("%d",&num);
-             generar(num);
-		    printf("Desea repetir \n 1-NO\n 2-SI\n");
-			scanf("%d",&rep);
-			 break;
-			 case 2: 
-             srand(time(NULL));
-			  r=rand()%20;
-			 printf("numero es %d",r);
-           num=r;
-		   generar(num);
-		    printf(" Repetir \n 1-NO\n 2-SI \n");
-			rep=1+rand()%2;
-			printf(" %d ",rep);
-		   break;
-		   default: printf("opcion incorrecta "); break;
-		   }
-		   }while(rep!=1);
-		 return 0;
-} 
-unsigned long generar (int x)
-{
-FILE *doc;
-doc=fopen("universo.txt","w+");
- unsigned long y,n=0,i,j;
-fprintf(doc,"{e,"); 
-    for(i=0;i<pow(2,x);i++){
-          y=i;  
-		while(y!=0){
-            fprintf(doc,"%d",y%2);
-                y=y/2;
-                n++;
-					}
-               for(j=n;j<x;j++){
-                 fprintf(doc,"0");
-					}           
-			fprintf(doc,",");
-		}
-		fprintf(doc,"}");
-	printf("\n");
-}
+    
 \end{lstlisting}
-
 \end{document}
